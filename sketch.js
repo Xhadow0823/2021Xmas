@@ -97,6 +97,7 @@ const handler = (event) => {
   beta = event.beta;
 };
 function onClick() {
+  /*
   if (typeof DeviceOrientationEvent.requestPermission === 'function') {
     DeviceOrientationEvent.requestPermission().then((state) => {
       if(state === 'granted') {
@@ -109,10 +110,12 @@ function onClick() {
   } else {
     needNoPermission();
   }
+  */
   // hidden the mask
   document.querySelector('#mask').remove();
 }
 function needNoPermission() {
+  /*
   console.log('%cevent listener start...', 'color: green; font-weight: bolder;');
   if (typeof DeviceOrientationEvent.requestPermission === 'function') {
     DeviceOrientationEvent.requestPermission().then(state => {
@@ -126,4 +129,5 @@ function needNoPermission() {
     document.querySelector('#mask').remove();
     window.addEventListener('deviceorientation', handler, true);
   }
+  */
 }
