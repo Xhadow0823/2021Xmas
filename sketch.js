@@ -11,6 +11,7 @@ let tree, ground, sky, couple;
 let stars = []; // [2]
 let snow = [];  // [3]
 function preload() {
+  try{
   tree = loadImage('tree.png');
   ground = loadImage('ground.png');
   sky = loadImage('sky.png');
@@ -22,24 +23,31 @@ function preload() {
   for(let i = 0; i < 2; i++) {
     stars.push(loadImage(`stars${i+1}.png`));
   }
+    
+  }catch(e) { alert('preload: ' + e); }
 }
 function getInitialHeight() { return getInitialWidth() * (695/321); }
 function getInitialWidth()  { return windowWidth; }
 // ===== override start =====
 function setup() {
+  try {
   // createCanvas(321, 695);
   createCanvas(getInitialWidth(), getInitialHeight());
   for(let i = 0; i < amount; i++) {
     snows.push(new Snow(width/321));
   }
+    
+  }catch(e) { alert('setup: ' + e); }
 }
 
 function draw() {
+  try {
   drawBackGround();
   for(let s of snows) {
     s.update();
     s.draw();
   }
+  }catch(e) { alert('draw: ' + e); }
 }
 
 function keyReleased() {
